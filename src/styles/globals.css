@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+/* -------------------------
+   Tailwind Theme
+   ------------------------- */
+@theme {
+  /* Font families */
+  --font-reckless: 'Reckless', sans-serif;
+  --font-untitled: 'Untitled Sans', sans-serif;
+  --default-font-family: 'Untitled Sans', sans-serif;
+
+  /* Colors */
+  --color-lightPink: #f9d6f0;
+  --color-pink: #9A0180;
+  --color-darkPink: #6a0058;
+  --color-tan: #fff5ed;
+  --color-purple: #8755F1;
+  --color-purple-dark: #7c4dcf;
+  --color-purple-darker: #8755F11A;
+  --color-dusty-indego: #425281;
+  --color-text: #000000;
+
+  /* Box shadows */
+  --shadow-header: 0 3px 6px 0 #0000001A, 0 11px 11px 0 #00000017,
+    0 25px 15px 0 #0000000D, 0 45px 18px 0 #00000003,
+    0 70px 20px 0 #00000000;
+}
+
+/* -------------------------
+   Reckless Font Face
+   ------------------------- */
+@font-face {
+  font-family: 'Reckless';
+  src: url('/fonts/Reckless-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* -------------------------
+   Untitled Sans Font Faces
+   ------------------------- */
+
+/* Light */
+@font-face {
+  font-family: 'Untitled Sans';
+  src: url('/fonts/untitled-sans-light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Untitled Sans';
+  src: url('/fonts/untitled-sans-light-italic.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Regular */
+@font-face {
+  font-family: 'Untitled Sans';
+  src: url('/fonts/UntitledSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Untitled Sans';
+  src: url('/fonts/untitled-sans-regular-italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Medium */
+@font-face {
+  font-family: 'Untitled Sans';
+  src: url('/fonts/UntitledSans-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Untitled Sans';
+  src: url('/fonts/untitled-sans-medium-italic.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Bold */
+@font-face {
+  font-family: 'Untitled Sans';
+  src: url('/fonts/UntitledSans-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Untitled Sans';
+  src: url('/fonts/untitled-sans-bold-italic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Black */
+@font-face {
+  font-family: 'Untitled Sans';
+  src: url('/fonts/untitled-sans-black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Untitled Sans';
+  src: url('/fonts/untitled-sans-black-italic.woff2') format('woff2');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* -------------------------
+   Utility Classes
+   ------------------------- */
+
+.title-font {
+  font-family: 'Reckless', sans-serif;
+  font-size: 40px;
+  line-height: 44px;
+  letter-spacing: 0%;
+  color: #9a0180;
+
+  @media (min-width: 768px) {
+    font-size: 45px;
+    line-height: 55px;
+  }
+
+  @media (min-width: 1536px) {
+    font-size: 66px;
+    line-height: 72px;
+  }
+}
+
+.subtitle-font {
+  font-family: 'Untitled Sans', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 30px;
+  color: #6a0058;
+
+  @media (min-width: 1024px) {
+    font-size: 25px;
+    line-height: 28px;
+  }
+
+  @media (min-width: 1280px) {
+    font-size: 27px;
+    line-height: 32px;
+  }
+
+  @media (min-width: 1536px) {
+    font-size: 30px;
+    line-height: 37px;
+  }
+}
+
+.body-font {
+  font-family: 'Untitled Sans', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  color: #000000;
+
+  @media (min-width: 1280px) {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  @media (min-width: 1536px) {
+    font-size: 24px;
+    line-height: 30px;
+  }
+}
+
+.list-font {
+  font-family: 'Untitled Sans', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+  color: #6a0058;
+
+  @media (min-width: 1280px) {
+    font-size: 22px;
+    line-height: 27px;
+  }
+}
+
+.button-font {
+  font-family: 'Untitled Sans', sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 27px;
+  text-align: center;
+  color: #ffffff;
+}
+
+/* -------------------------
+   Autofill Override
+   ------------------------- */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px rgba(135, 85, 241, 0.01) inset !important;
+  box-shadow: 0 0 0 1000px rgba(135, 85, 241, 0.01) inset !important;
+  -webkit-text-fill-color: #1d2534 !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
