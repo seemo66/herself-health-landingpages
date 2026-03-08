@@ -37,6 +37,7 @@ export default function WaitingListForm() {
     Email: '',
     Phone: '',
     HealthCoverage: '',
+    smsConsent: false,
   });
 
   // submission state
@@ -84,7 +85,8 @@ export default function WaitingListForm() {
 
   // update form state on input change
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value, type, checked } = e.target;
+    setFormData({ ...formData, [name]: type === 'checkbox' ? checked : value });
 
     // Track form start on first interaction
     if (!formStarted) {
@@ -158,7 +160,14 @@ export default function WaitingListForm() {
         // reset form and hide success message after 10 seconds
         timerRef.current = setTimeout(() => {
           setSubmitted(false);
-          setFormData({ FirstName: '', LastName: '', Email: '', Phone: '', HealthCoverage: '' });
+          setFormData({
+            FirstName: '',
+            LastName: '',
+            Email: '',
+            Phone: '',
+            HealthCoverage: '',
+            smsConsent: false,
+          });
         }, 10000);
       } else {
         const errorData = await response.text();
@@ -273,8 +282,9 @@ export default function WaitingListForm() {
         <label className="md:col-span-2 flex items-start gap-3 cursor-pointer mb-[20px]">
           <input
             type="checkbox"
-            name="SmsConsent"
-            required
+            name="smsConsent"
+            checked={formData.smsConsent}
+            onChange={handleChange}
             className="accent-pink w-4 h-4 mt-1 shrink-0"
           />
           <span className="font-untitled font-normal text-[16px] text-gray-500 leading-6">

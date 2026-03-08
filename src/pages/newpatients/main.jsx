@@ -6,6 +6,7 @@ import SharedLandingPage from '../shared/SharedLandingPage'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <SharedLandingPage
+      excludeSections={['GuideSection']}
       formConfig={{
         formName: 'newpatients',
         formId: 'newpatients-form',

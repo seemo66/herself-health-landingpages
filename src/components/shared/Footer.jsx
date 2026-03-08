@@ -2,10 +2,16 @@ import LocationSection from './LocationsSection';
 
 // footer component, displayed at the bottom of the page
 // contains site logo and optional links
-export default function Footer({ topPadding = false, topPaddingClass = 'md:pt-[275px]' }) {
+export default function Footer({
+  topPadding = false,
+  topPaddingClass = 'md:pt-[275px]',
+  mobilePaddingClass = 'pt-[45px] pb-[45px]',
+}) {
   return (
     // semantic footer element for accessibility
-    <footer className={`w-full z-[11] bg-pink flex items-center justify-center py-[45px] ${topPadding ? topPaddingClass : ''} flex-col`}>
+    <footer
+      className={`w-full z-[11] bg-pink flex items-center justify-center ${mobilePaddingClass} md:py-[45px] ${topPadding ? topPaddingClass : ''} flex-col`}
+    >
       {/* container for logo and optional navigation */}
       <div className="flex flex-col items-center justify-center w-full mx-auto">
         {/* site logo linking to home page */}

@@ -47,6 +47,7 @@ export default function WaitingListForm({
     Email: '',
     Phone: '',
     HealthCoverage: '',
+    smsConsent: false,
   });
 
   // submission state
@@ -94,7 +95,8 @@ export default function WaitingListForm({
 
   // update form state on input change
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value, type, checked } = e.target;
+    setFormData({ ...formData, [name]: type === 'checkbox' ? checked : value });
 
     // Track form start on first interaction
     if (!formStarted) {
@@ -170,7 +172,14 @@ export default function WaitingListForm({
         // reset form and hide success message after 5 seconds
         timerRef.current = setTimeout(() => {
           // setSubmitted(false);
-          setFormData({ FirstName: '', LastName: '', Email: '', Phone: '', HealthCoverage: '' });
+          setFormData({
+            FirstName: '',
+            LastName: '',
+            Email: '',
+            Phone: '',
+            HealthCoverage: '',
+            smsConsent: false,
+          });
         }, 5000);
       } else {
         const errorData = await response.text();
@@ -194,15 +203,15 @@ export default function WaitingListForm({
     <div className="relative flex items-center justify-center md:justify-start">
       {/* success message overlay */}
       <div
-        className={`absolute transition-opacity duration-700 ease-in-out font-reckless text-[24px]
-                    text-darkPink text-lg font-medium mb-3 xl:leading-tight
+        className={`absolute mb-3 font-untitled font-normal text-[18px] leading-6 text-darkPink
+                    transition-opacity duration-700 ease-in-out
                     ${
                       submitted
                         ? 'opacity-100 pointer-events-auto'
                         : 'opacity-0 pointer-events-none'
                     }`}
       >
-        <p className="pb-5 text-xl">Thank you!</p>
+        <p className="pb-5">Thank you!</p>
         <p className="pb-5">
           Your form has been submitted - <br />
           Your free guide is ready to download
@@ -219,8 +228,8 @@ export default function WaitingListForm({
           We'll reach out soon to answer any questions and help you schedule your first visit.
         </p>
 
-        <p className="text-xl">Prefer to call now?</p>
-        <a className="text-xl" href={phoneHref}>
+        <p>Prefer to call now?</p>
+        <a href={phoneHref}>
           {phone}
         </a>
       </div>
@@ -244,7 +253,7 @@ export default function WaitingListForm({
             {/* input label */}
             <label
               htmlFor={id}
-              className="font-untitled font-normal text-[18px] text-black block mb-1"
+              className="font-untitled font-normal text-[18px] leading-6 text-black block mb-1"
             >
               {label}
             </label>
@@ -266,7 +275,7 @@ export default function WaitingListForm({
 
         {/* Health coverage question */}
         <fieldset className="md:col-span-2 mt-[20px] mb-[25px]">
-          <legend className="font-untitled font-normal text-[18px] text-black mb-3 block">
+          <legend className="font-untitled font-normal text-[18px] leading-6 text-black mb-3 block">
             Which best describes your health coverage right now?
           </legend>
           <div className="space-y-2">
@@ -295,14 +304,15 @@ export default function WaitingListForm({
         </fieldset>
 
         {/* SMS consent checkbox */}
-        <label className="md:col-span-2 flex items-start gap-3 cursor-pointer mb-[20px]">
+        <label className="md:col-span-2 flex items-center gap-3 cursor-pointer mb-[20px]">
           <input
             type="checkbox"
-            name="SmsConsent"
-            required
-            className="accent-pink w-4 h-4 mt-1 shrink-0"
+            name="smsConsent"
+            checked={formData.smsConsent}
+            onChange={handleChange}
+            className="accent-pink w-4 h-4 shrink-0"
           />
-          <span className="font-untitled font-normal text-[16px] text-gray-500 leading-6">
+          <span className="font-untitled font-normal text-[14px] leading-[17px] text-black">
             I consent to receive SMS text messages from Herself Health about my appointment and
             healthcare information. Message and data rates may apply. Reply STOP to opt out.
           </span>
@@ -312,43 +322,14 @@ export default function WaitingListForm({
         <button
           type="submit"
           disabled={isLoading}
-          className={`p-[10px] rounded-[10px] w-full mt-2 mb-2 md:col-span-2 font-untitled font-medium text-[18px] transition-colors ${
+          className={`p-[10px] rounded-[10px] w-full mt-2 mb-2 md:col-span-2 font-untitled font-normal text-[22px] leading-[27px] text-center text-white transition-colors ${
             isLoading
-              ? 'bg-gray-400 text-gray-600 cursor-not-allowed'
-              : 'bg-purple text-white hover:bg-purple/90'
+              ? 'bg-gray-400 cursor-not-allowed'
+              : 'bg-purple hover:bg-purple/90'
           }`}
         >
-          {isLoading ? 'Submitting...' : 'Request Appointment & Get Guide'}
+          {isLoading ? 'Submitting...' : 'Request an Appointment'}
         </button>
-        {/* <p className="md:col-span-2 font-untitled font-normal text-[18px] text-black leading-6 mt-[15px] lg:text-[20px]">
-          We’ll send your guide and follow up to help schedule your visit.
-        </p> */}
-
-        <div className="hidden col-span-2 md:block">
-          <p className="font-untitled font-normal text-[18px] text-black leading-6 mb-[25px] col-span-2 pt-8">
-            Not ready to schedule today? No problem — we’ll email the guide so you can review what
-            to expect, and you can schedule when you’re ready.
-          </p>
-          <div className="flex">
-            <div>
-
-            <p className="font-untitled font-normal text-[18px] text-black leading-6 mb-[5px]">
-              Inside the guide (quick read):
-            </p>
-            <ul className="list-disc font-untitled font-normal text-[18px] text-black leading-6 mb-[25px] ml-8">
-              <li>What to expect during your 90-minute Welcome Visit</li>
-              <li>How to prepare for your appointment</li>
-              <li>What to bring to your visit</li>
-              <li>Answers to common questions</li>
-            </ul>
-            </div>
-            <img
-              src={`/images/landingpage/shared/guide-cover.webp`}
-              alt="lady smiling"
-              className="w-1/2 h-auto mb-8 rounded-lg"
-            />  
-          </div>
-        </div>
       </form>
     </div>
   );

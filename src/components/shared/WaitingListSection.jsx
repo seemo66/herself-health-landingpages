@@ -1,6 +1,5 @@
 // WaitingListSection component
 // Displays a hero image, testimonial, and a form for users to join the waitlist
-import FormGuideSection from './FormGuideSection';
 import WaitingListForm from './WaitingListForm';
 
 export default function WaitingListSection({ formConfig, FormComponent = WaitingListForm }) {
@@ -25,48 +24,68 @@ export default function WaitingListSection({ formConfig, FormComponent = Waiting
           </picture>
         </div>
 
-        {/* Overlay container for testimonial + form */}
+        {/* Overlay container for form content */}
         <div
           id="waiting-list"
           className="w-full py-[34px] px-[30px] 
                      md:absolute md:left-0 md:top-1/2 md:-translate-y-1/2 
-                     md:max-w-[822px] lg:left-[146px] md:border-[2px] bg-white border-pink rounded-[10px] md:px-[83px] md:py-[61px]"
+                     md:max-w-[822px] lg:left-[146px] md:border-[2px] bg-white border-pink rounded-[10px] md:px-[83px] md:py-[41px]"
         >
-          {/* Testimonial block */}
-          <div className="mb-[35px] lg:mb-[40px] md:text-center md:hidden">
-            <img
-              src="/images/landingpage/shared/quotations-icon.png"
-              alt="Quotation mark icon"
-              className="block w-[50px] h-full mb-[15px] md:mx-auto"
-            />
-            <blockquote className="font-untitled font-bold italic text-[18px] md:text-[20px] text-pink leading-6 mb-[16px]">
-              I felt very valued and well cared for. It was a very good first appointment with the
-              very thoughtful doctor.
-            </blockquote>
-            <p className="font-untitled font-normal text-[18px] text-black leading-6 mb-[16px] md:text-[20px]">
-              – Herself Health Patient.
-            </p>
-          </div>
           {/* Headline */}
           <h2
             className="font-reckless font-medium text-[40px] text-pink mb-[35px] 
                           md:text-[50px] leading-[45px]"
           >
-            Schedule Your 90-Minute Welcome Visit
+            Schedule Your Welcome Visit
           </h2>
 
-          <h3 className="font-untitled text-[18px] text-black leading-6 mb-[30px] lg:text-[20px] ">
-            Want to connect online instead? Fill out the form below and we’ll be in touch promptly
-            to help you get started.
+          <h3 className="font-reckless not-italic font-normal text-[22px] leading-[24px] text-pink mb-[30px] lg:text-[30px] lg:leading-[33px]">
+            More time, more answers, and a care team that follows through
           </h3>
+
+          <p className="mb-[20px] md:mb-[46px] font-untitled not-italic font-normal text-[18px] leading-6 text-black">
+            Fill out the form below to get our guide and take the next step toward becoming a
+            patient. Our team will follow up to help you get started
+          </p>
+
+          <div className="flex flex-col gap-6 md:flex-row md:items-start md:gap-8">
+            <div className="md:flex-1">
+              <p className="mb-[10px] font-untitled not-italic font-normal text-[18px] leading-6 text-black">
+                Inside the guide:
+              </p>
+
+              <ul className="list-disc pl-6 font-untitled not-italic font-normal text-[18px] leading-6 text-black space-y-1">
+                <li>Your first visit, explained</li>
+                <li>Prep checklist + questions to ask</li>
+                <li>Next steps that fit your needs</li>
+              </ul>
+            </div>
+
+            <img
+              src="/images/landingpage/shared/guide-brochure-cover.png"
+              alt="Guide cover"
+              className="mx-auto h-[168px] w-[235px] rounded-lg object-cover md:mx-0 md:shrink-0 md:relative md:-top-[30px] md:-left-[20px]"
+            />
+          </div>
+
+          <div className="mb-[25px] md:mb-0">
+            <img
+              src="/images/landingpage/shared/quotations-icon.png"
+              alt="Quotation mark icon"
+              className="mb-[15px] h-[22px] w-[34px]"
+            />
+            <blockquote className="mb-[16px] font-untitled text-[18px] font-bold italic leading-6 text-pink">
+              I felt very valued and well cared for. It was a very good first appointment with the
+              very thoughtful doctor.
+            </blockquote>
+          </div>
           {/* Form box */}
           <div>
             {/* Embedded form */}
             <FormComponent {...formConfig} />
-            <FormGuideSection className="block md:hidden" />
           </div>
 
-          <p className="font-untitled font-normal text-[18px] text-black leading-6 mt-[25px]">
+          <p className="mt-[25px] font-untitled font-normal text-[14px] leading-[17px] text-black">
             By submitting this form, you agree to our{' '}
             <a
               href="https://www.herself-health.com/privacy-policy"

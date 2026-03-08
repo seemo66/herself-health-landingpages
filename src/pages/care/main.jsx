@@ -10,6 +10,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       phone="844-55-HERSELF"
       phoneHref="tel:8445543773"
       phoneSubtitle="(844) 554-3773"
+      phoneSubtitleClass="font-untitled not-italic font-light text-[15px] leading-[19px] text-pink"
+      centerSubtitleOnMobile
+      mobileHeaderHeightClass="h-[112px]"
+      mobileTopOffsetClass="mt-[112px]"
       formConfig={{
         formName: 'care',
         formId: 'care-form',

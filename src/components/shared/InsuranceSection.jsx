@@ -47,7 +47,7 @@ export default function WaitingListSection({ phone = '(888) 290-1209', phoneHref
       </div> */}
 
       {/* Coverage Fallback / Contact Section */}
-      <div className="mx-auto max-w-[1728px] bg-lightPink px-[30px] py-[60px] md:text-center">
+      <div className="mx-auto max-w-[1728px] bg-lightPink px-[30px] pt-[60px] pb-[60px] md:pb-[250px] md:text-center">
         <div className="mx-auto max-w-[1100px]">
           <h2 className="mb-[16px] font-reckless text-[40px] leading-tight text-pink md:mb-[30px] md:text-[60px]">
             Questions about coverage?
@@ -68,7 +68,7 @@ export default function WaitingListSection({ phone = '(888) 290-1209', phoneHref
             </button>
           </a>
 
-          <p className="font-untitled text-[14px] font-normal leading-6 text-black mt-8 md:text-[16px]">
+          <p className="mt-8 font-untitled not-italic font-normal text-[16px] leading-6 text-black md:text-center md:text-[18px] md:leading-[22px]">
             Coverage varies by plan—call and we’ll confirm in minutes.
           </p>
         </div>

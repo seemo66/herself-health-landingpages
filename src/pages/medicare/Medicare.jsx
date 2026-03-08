@@ -1,47 +1,47 @@
-// main entry point for the app
-// imports top-level layout and section components
 import Header from '../../components/shared/Header';
 import Footer from '../../components/shared/Footer';
-import HeroSection from '../../components/medicare/HeroSection';
-import GuideSection from '../../components/shared/GuideSection';
-import ServicesSection from '../../components/medicare/ServicesSection';
-// import InsuranceSection from '../../components/shared/InsuranceSection';
+import HeroSection from '../../components/shared/HeroSection';
+import HeroHighlightsBar from '../../components/shared/HeroHighlightsBar';
+import ServicesSection from '../../components/shared/ServicesSection';
 import MembershipSection from '../../components/shared/MembershipSection';
-// import FormGuideSectionDesktop from '../../components/shared/FormGuideSectionDesktop';
 import WaitingListSection from '../../components/medicare/WaitingListSection';
 
+function MedicareServicesSection() {
+  return <ServicesSection showMedicareCoverageCopy />;
+}
+
 function MedicareMembershipSection() {
-  return <MembershipSection bottomPaddingClass="md:pb-[400px]" />;
+  return <MembershipSection bottomPaddingClass="md:pb-[160px]" />;
 }
 
 function Medicare() {
-  // define the order of sections for easy management
   const sections = [
-    HeroSection, // hero section with primary call-to-action
-    GuideSection, // guide download section
-    ServicesSection, // services offered by the company
-    // InsuranceSection, // insurance information
-    MedicareMembershipSection, // membership or subscription information
-    // FormGuideSectionDesktop, // desktop version of the form guide section
-    WaitingListSection, // waiting list or sign-up form
+    HeroSection,
+    HeroHighlightsBar,
+    MedicareServicesSection,
+    MedicareMembershipSection,
+    WaitingListSection,
   ];
 
+  const highlightsSectionIndex = sections.findIndex((Section) => Section === HeroHighlightsBar);
+
   return (
-    // container for the entire app, centers content horizontally
     <div className="mx-auto mt-[102px] lg:mt-[78px]">
-      {/* site header, usually contains navigation */}
       <Header phone="877-487-4554" phoneHref="tel:18774874554" />
 
-      {/* main content area, semantically marked as main */}
       <main className="max-w-[1728px] mx-auto" role="main">
         {sections.map((Section, index) => (
-          // render each section in order
-          <Section key={index} />
+          <div key={index} className={index === highlightsSectionIndex + 1 ? 'lg:pt-[70px]' : ''}>
+            <Section />
+          </div>
         ))}
       </main>
 
-      {/* site footer, contains copyright, links, etc. */}
-      <Footer topPadding topPaddingClass="md:pt-[375px]" />
+      <Footer
+        topPadding
+        topPaddingClass="md:pt-[170px]"
+        mobilePaddingClass="pt-[45px] pb-[10px]"
+      />
     </div>
   );
 }
