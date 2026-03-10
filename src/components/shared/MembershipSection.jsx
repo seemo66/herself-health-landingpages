@@ -22,7 +22,7 @@ export default function MembershipSection({ bottomPaddingClass = '' }) {
             'Heart, bone, and metabolic health',
             'Post-menopause and later-life support',
           ].map((item, idx) => (
-            <li key={idx} className="flex items-center space-x-3">
+            <li key={idx} className="flex space-x-3">
               <img
                 src="/images/landingpage/shared/checkmark-pink.svg"
                 alt=""
