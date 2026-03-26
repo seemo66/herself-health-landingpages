@@ -3,7 +3,7 @@
 
 import FaqAccordion from './FaqAccordion';
 
-export default function ServicesSection() {
+export default function ServicesSection({ phoneNumber = '888-290-1209' }) {
   const faqs = [
     {
       question: 'Why do I need a membership?',
@@ -118,7 +118,7 @@ export default function ServicesSection() {
       question: 'Who can I talk to if I have questions?',
       answer: {
         text: 'We are here to support you. You can:',
-        list: ['Call us at 888-290-1209', 'Talk with your Clinic Manager at your next visit'],
+        list: [`Call us at ${phoneNumber}`, 'Talk with your Clinic Manager at your next visit'],
       },
     },
   ];

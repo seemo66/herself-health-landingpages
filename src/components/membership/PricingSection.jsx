@@ -1,5 +1,5 @@
 
-export default function PricingSection() {
+export default function PricingSection({ phoneNumber = '888-290-1209' }) {
   const membershipIncludes = [
     'Longer visits',
     'Same-day and next-day visits',
@@ -43,7 +43,9 @@ export default function PricingSection() {
         </ul>
       </div>
 
-      <p className="font-untitled font-medium text-[28px] text-white">To join, call a Membership Advisor at <a href="tel:888-290-1209">888-290-1209</a></p>
+      <p className="font-untitled font-medium text-[28px] text-white">
+        To join, call a Membership Advisor at <a href={`tel:${phoneNumber.replace(/[^\d]/g, '')}`}>{phoneNumber}</a>
+      </p>
     </section>
   );
 }

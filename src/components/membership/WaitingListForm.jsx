@@ -29,7 +29,14 @@ function getUTMData() {
   };
 }
 
-export default function WaitingListForm() {
+export default function WaitingListForm({
+  form_name = 'membership',
+  form_id = 'membership-form',
+  form_source = 'membership',
+  page_type = 'membership_landing',
+  form_title = 'Membership',
+  page_lead_source = 'Membership_long',
+}) {
   // form state
   const [formData, setFormData] = useState({
     FirstName: '',
@@ -95,14 +102,14 @@ export default function WaitingListForm() {
         const utmData = getUTMData();
         window.dataLayer.push({
           event: 'form_start',
-          form_name: 'membership',
-          form_id: 'membership-form',
+          form_name,
+          form_id,
           utm_source: utmData.utm_source,
           utm_medium: utmData.utm_medium,
           utm_campaign: utmData.utm_campaign,
           fb_ad_id: utmData.fb_ad_id,
           campaign_id: utmData.campaign_id,
-          page_type: 'membership_landing',
+          page_type,
         });
       }
     }
@@ -125,13 +132,13 @@ export default function WaitingListForm() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          id: 'membership-form', // Form identifier
+          id: form_id, // Form identifier
           fields: JSON.stringify(formData), // Salesforce fields
-          form_title: 'Membership', // Form title for tracking
+          form_title, // Form title for tracking
           utm_data: JSON.stringify(utmData), // UTM tracking data
-          page_lead_source: 'Membership_long', // utmData.utm_source, // Lead source for this page
+          page_lead_source, // Lead source for this page
           page_campaign_id: '', // No specific campaign for guide page
-          form_source: 'membership', // Specific form source identifier
+          form_source, // Specific form source identifier
         }),
       });
 
@@ -143,14 +150,14 @@ export default function WaitingListForm() {
         if (typeof window !== 'undefined' && window.dataLayer) {
           window.dataLayer.push({
             event: 'form_submit_success',
-            form_name: 'membership',
-            form_id: 'membership-form',
+            form_name,
+            form_id,
             utm_source: utmData.utm_source,
             utm_medium: utmData.utm_medium,
             utm_campaign: utmData.utm_campaign,
             fb_ad_id: utmData.fb_ad_id,
             campaign_id: utmData.campaign_id,
-            page_type: 'membership_landing',
+            page_type,
           });
         }
 

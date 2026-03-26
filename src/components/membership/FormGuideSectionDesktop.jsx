@@ -14,12 +14,12 @@ export default function FormGuideSection() {
         </div>
         <div className="flex flex-col justify-center lg:max-w-full">
           <p className="font-untitled text-[#1D2534] text-[24px] mb-6">
-            Get your free Guide to Feeling Your Best — it’s filled with everything you need to know
+              Get your free Guide to Feeling Your Best — it’s filled with everything you need to know
             about how Herself Health helps women 65+ stay active, confident, and cared for.
           </p>
-          <p className="font-untitled text-[#1D2534] text-[24px] mb-8">
-            After you download, a member of our team will reach out to answer any questions and help
-            you schedule your first visit when you’re ready.
+          <p className="font-untitled text-[#1D2534] text-[24px] mb-6">
+            Get your free Guide to Feeling Your Best — it’s filled with everything you need to know
+            about how Herself Health helps women 65+ stay active, confident, and cared for.
           </p>
           <h2 className="font-reckless  text-[24px] text-pink text-lg font-medium mb-8 xl:text-[30px] xl:leading-tight">
             Ready to take the next step?

@@ -18,6 +18,7 @@ const pages = [
   { name: 'medicare',   entry: 'medicare/index.html',   outDir: resolve(root, 'dist/medicare') },
   { name: 'member',     entry: 'member/index.html',     outDir: resolve(root, 'dist/member') },
   { name: 'membership', entry: 'membership/index.html', outDir: resolve(root, 'dist/membership') },
+  { name: 'midi',       entry: 'midi/index.html',       outDir: resolve(root, 'dist/midi') },
 ]
 
 for (const { name, entry, outDir } of pages) {

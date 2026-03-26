@@ -2,7 +2,14 @@
 // Displays a hero image, testimonial, and a form for users to join the waitlist
 import WaitingListForm from './WaitingListForm';
 
-export default function WaitingListSection() {
+export default function WaitingListSection({
+  form_name = 'membership',
+  form_id = 'membership-form',
+  form_source = 'membership',
+  page_type = 'membership_landing',
+  form_title = 'Membership',
+  page_lead_source = 'Membership_long',
+}) {
   return (
     <section className="bg-white pt-[140px]">
       {/* Hero wrapper with relative positioning for overlay form */}
@@ -72,7 +79,14 @@ export default function WaitingListSection() {
               discuss if membership is right for you.
             </p>
             {/* Embedded form */}
-            <WaitingListForm />
+            <WaitingListForm
+              form_name={form_name}
+              form_id={form_id}
+              form_source={form_source}
+              page_type={page_type}
+              form_title={form_title}
+              page_lead_source={page_lead_source}
+            />
             <p className="font-untitled font-normal text-[18px] text-black leading-6 mt-[25px]">
               By submitting this form, you agree to our{' '}
               <a

@@ -1,7 +1,7 @@
 // ServicesSection Component
 // Displays an image alongside service highlights and a list of key healthcare areas.
 
-export default function ServicesSection() {
+export default function ServicesSection({ phoneNumber = '888-290-1209' }) {
   return (
     <section className="m-auto flex flex-col gap-[40px] bg-white px-[30px] pt-[50px] py-[40px] xl:flex-row m-w-[1400px] lg:gap-16 lg:px-[90px] lg:justify-center xl:py-[90px]">
       {/* Responsive service image */}
@@ -43,7 +43,7 @@ export default function ServicesSection() {
         </button>
 
         <p className="text-[18px] leading-tight text-[#1D2534] xl:text-[21px]">
-          Have questions before joining? Call us at 888-290-1209 and our team will help you decide
+          Have questions before joining? Call us at {phoneNumber} and our team will help you decide
           if the membership is a good fit.
         </p>
       </div>

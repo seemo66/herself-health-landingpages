@@ -1,7 +1,7 @@
 // WaitingListSection Component
 // Displays accepted insurance plans, fallback info, and contact details.
 
-export default function WaitingListSection({ phone = '(888) 290-1209', phoneHref = 'tel:+18882901209' }) {
+export default function WaitingListSection({ phoneHref = 'tel:+18882901209' }) {
   return (
     <section className="bg-lightPink">
       {/* Insurance Plans Banner */}

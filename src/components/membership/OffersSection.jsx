@@ -1,34 +1,5 @@
-import MembershipCard from './MembershipCard';
-
 export default function ServicesSection() {
-  const memberships = [
-    {
-      id: 'monthly',
-      badge: 'Most Flexible',
-      title: 'Annual Membership\nPay Monthly',
-      priceLabel: 'Price',
-      price: '$99 per month',
-      introLabel: 'Limited Time Introductory Price',
-      introPrice: '$249',
-      description:
-        'All the same benefits with convenient monthly payments. You can cancel in the first 30 days if it’s not the right fit.',
-      cta: 'Choose monthly',
-    },
-    {
-      id: 'annual',
-      badge: 'Most Affordable',
-      title: 'Annual Membership, Pay Annually (Best Value)',
-      savings: 'Over180 in savings',
-      priceLabel: 'Price',
-      price: '$999 per year',
-      introLabel: 'Limited Time Introductory Price',
-      introPrice: '$2,499',
-      description: 'One easy payment for a full year of care at the lowest price.',
-      bonus: '1.5 months free',
-
-      cta: 'Choose annual',
-    },
-  ];
+  
 
   return (
     <section className="m-auto flex flex-col items-center gap-[40px] bg-[#FCF7FB] px-[30px] pt-[50px] py-[40px] lg:py-28">
