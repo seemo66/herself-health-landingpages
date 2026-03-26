@@ -41,3 +41,33 @@ This repository contains multi-page React landing pages for Herself Health, buil
 - `.env` files are ignored by default.
 
 For more details, see `.github/copilot-instructions.md`.
+
+---
+
+## Deploying to the Dotcom Repo
+
+After building the landing pages, follow these steps to deploy them to the main dotcom site:
+
+1. **Build the landing pages:**
+	- Run `npm run build` (or `yarn build`).
+	- The compiled CSS and JS files will be output to the `dist/` directory.
+
+2. **Copy compiled assets:**
+	- Copy the relevant CSS and JS files from `dist/` into the appropriate static/assets directory in the dotcom repo.
+
+3. **Add images and HTML files:**
+	- If your landing page uses new images, copy them from `public/images/landingpage/` into the dotcom repo's public/static/images directory.
+	- Do not copy HTML files from this repo. The HTML files for landing pages are managed directly in the dotcom repo. If a new HTML file is needed, create it in the dotcom repo.
+
+4. **Update Next.js config:**
+	- Edit the `next.config.js` file in the dotcom repo to ensure any new routes, rewrites, or static asset handling for the landing page are configured.
+
+5. **Update contact form API (if needed):**
+	- If your landing page form requires changes to backend handling, update `/pages/api/contact.ts` in the dotcom repo to support any new fields or logic.
+
+6. **Test the deployed page:**
+	- Visit the staging environment  landing page on the dotcom site and verify that all assets load, forms work, and images display correctly.
+	- For staging, use: https://hh-staging.vercel.app/
+	- Note: Landing page forms will not work on the staging site because SalesForce integration is not connected there.
+
+---
