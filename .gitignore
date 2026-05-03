@@ -15,6 +15,7 @@
 
 # production
 /dist
+/compiled files
 
 # misc
 .DS_Store

@@ -3,7 +3,7 @@
 
 export default function MembershipSection({ bottomPaddingClass = '' }) {
   return (
-    <section className={`flex flex-col bg-tan px-[30px] py-[60px] md:py-[72px] ${bottomPaddingClass} items-center`}>
+    <section className={`relative flex flex-col bg-tan px-[30px] py-[60px] pb-[160px] md:py-[72px] md:pb-[172px] ${bottomPaddingClass} items-center`}>
       {/* Membership Content */}
       <div className="mx-auto w-full max-w-[857px]">
         <h2
@@ -20,7 +20,7 @@ export default function MembershipSection({ bottomPaddingClass = '' }) {
             'Prevention and screenings',
             'Weight and thyroid concerns',
             'Heart, bone, and metabolic health',
-            'Post-menopause and later-life support',
+            'Managing chronic and age-related conditions',
           ].map((item, idx) => (
             <li key={idx} className="flex space-x-3">
               <img
@@ -33,6 +33,15 @@ export default function MembershipSection({ bottomPaddingClass = '' }) {
             </li>
           ))}
         </ul>
+      </div>
+
+      {/* Medicare badge straddling this section and the next */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-10">
+        <img
+          src="/images/landingpage/shared/medicare-badge.png"
+          alt="Medicare and Medicare Advantage Plans Accepted"
+          className="w-[200px] h-auto md:w-[245px]"
+        />
       </div>
     </section>
   );

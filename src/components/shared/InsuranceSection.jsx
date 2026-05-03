@@ -47,7 +47,7 @@ export default function WaitingListSection({ phoneHref = 'tel:+18882901209' }) {
       </div> */}
 
       {/* Coverage Fallback / Contact Section */}
-      <div className="mx-auto max-w-[1728px] bg-lightPink px-[30px] pt-[60px] pb-[60px] md:pb-[250px] md:text-center">
+      <div className="mx-auto max-w-[1728px] bg-lightPink px-[30px] pt-[130px] pb-[60px] md:pb-[250px] md:text-center">
         <div className="mx-auto max-w-[1100px]">
           <h2 className="mb-[16px] font-reckless text-[40px] leading-tight text-pink md:mb-[30px] md:text-[60px]">
             Questions about coverage?

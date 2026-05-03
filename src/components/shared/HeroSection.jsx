@@ -9,11 +9,11 @@ export default function HeroSection() {
       <div className="relative w-full">
         <picture>
           {/* desktop image source with media query */}
-          <source srcSet="/images/landingpage/shared/new-hero-desktop.jpg" media="(min-width: 768px)" />
+          <source srcSet="/images/landingpage/shared/hero-desktop.png" media="(min-width: 768px)" />
           {/* mobile image (default) */}
           <img
-            src="/images/landingpage/shared/new-hero-mobile.jpg"
-            alt="A woman happily smiling."
+            src="/images/landingpage/shared/hero-mobile.png"
+            alt="Three women walking together outdoors, laughing."
             className="block w-full md:min-h-[525px] object-cover"
           />
         </picture>
@@ -27,19 +27,18 @@ export default function HeroSection() {
         <div className="md:w-[55%] lg:w-[55%] xl:w-[50%] 2xl:w-[45%] md:max-w-7xl md:pr-8">
           {/* main headline */}
           <h1 className="font-reckless not-italic font-normal text-[40px] leading-[44px] text-pink mb-[17px] md:text-2xl xl:text-5xl 2xl:text-[62px] 2xl:leading-[68px]">
-            Finally – primary care that listens.
+            Finally care where you feel heard, understood, and supported.
           </h1>
 
           {/* subheadline */}
           <h2 className="font-untitled not-italic font-medium text-[24px] leading-[30px] text-darkPink mb-[21px] md:text-[20px] md:leading-[26px] lg:text-[22px] lg:leading-[28px] xl:text-[30px] xl:leading-[37px]">
-            Care built for women in this stage of life, with more time, more answers, and a team
-            that follows through.
+            Comprehensive primary care for senior women.
           </h2>
 
           {/* Service highlights with checkmarks */}
           <ul className="mb-[30px] space-y-4 pl-0 font-untitled not-italic font-bold text-[18px] leading-[22px] text-darkPink md:text-[15px] md:leading-[19px] lg:text-[16px] lg:leading-[20px] xl:text-[21px] xl:leading-[26px]">
             {[
-              'Longer visits and care built around your needs.',
+              '90 minute welcome visits',
               'Support for prevention, ongoing health concerns, and what comes next.',
               'Coverage questions? We can help guide you.',
             ].map((item, idx) => (

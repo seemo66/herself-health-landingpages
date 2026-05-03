@@ -44,14 +44,14 @@ export default function WaitingListSection({ formConfig, FormComponent = Waiting
           </h3>
 
           <p className="mb-[20px] md:mb-[46px] font-untitled not-italic font-normal text-[18px] leading-6 text-black">
-            Fill out the form below to get our guide and take the next step toward becoming a
-            patient. Our team will follow up to help you get started
+            Fill out the form to take your next step towards scheduling your 90 minute initial
+            welcome visit. Our team will follow up to help you get started.
           </p>
 
           <div className="flex flex-col gap-6 md:flex-row md:items-start md:gap-8">
             <div className="md:flex-1">
-              <p className="mb-[10px] font-untitled not-italic font-normal text-[18px] leading-6 text-black">
-                Inside the guide:
+              <p className="mb-[20px] font-untitled not-italic font-normal text-[18px] leading-6 text-black">
+                In the meantime, we will send you "The Guide to Feeling Your Best" where you will learn about:
               </p>
 
               <ul className="list-disc pl-6 font-untitled not-italic font-normal text-[18px] leading-6 text-black space-y-1">
@@ -68,7 +68,7 @@ export default function WaitingListSection({ formConfig, FormComponent = Waiting
             />
           </div>
 
-          <div className="mb-[25px] md:mb-0">
+          <div className="mb-[25px] mt-[25px] md:mb-0">
             <img
               src="/images/landingpage/shared/quotations-icon.png"
               alt="Quotation mark icon"

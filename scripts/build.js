@@ -10,6 +10,7 @@ const root = resolve(__dirname, '..')
 
 const pages = [
   { name: 'care',       entry: 'care/index.html',       outDir: resolve(root, 'dist/care') },
+  { name: 'aha',        entry: 'aha/index.html',        outDir: resolve(root, 'dist/aha') },
   { name: 'tv',         entry: 'tv/index.html',         outDir: resolve(root, 'dist/tv') },
   { name: 'directmail', entry: 'directmail/index.html', outDir: resolve(root, 'dist/directmail') },
   { name: 'email',      entry: 'email/index.html',      outDir: resolve(root, 'dist/email') },
@@ -42,17 +43,20 @@ for (const { name, entry, outDir } of pages) {
   })
 }
 
-// Copy all compiled JS and CSS files into a single dist/compiled folder
+// Copy all compiled JS and CSS files into dist/compiled and root "compiled files" folder
 const compiledDir = resolve(root, 'dist/compiled')
+const compiledFilesDir = resolve(root, 'compiled files')
 mkdirSync(compiledDir, { recursive: true })
+mkdirSync(compiledFilesDir, { recursive: true })
 
 for (const { name, outDir } of pages) {
   for (const ext of ['js', 'css']) {
     const src = resolve(outDir, `${name}-compiled.${ext}`)
     if (existsSync(src)) {
       cpSync(src, resolve(compiledDir, `${name}-compiled.${ext}`))
+      cpSync(src, resolve(compiledFilesDir, `${name}-compiled.${ext}`))
     }
   }
 }
 
-console.log('\nAll compiled files copied to dist/compiled/')
+console.log('\nAll compiled files copied to dist/compiled/ and compiled files/')
